@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_1.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,18 +14,18 @@ namespace Project_1
 {
     public partial class Login : Form
     {
-        SqlCommand command;
-        SqlConnection cn;
-        SqlDataReader dr;
-        public Login()
+        private DbRepository repository;
+
+        public Login(DbRepository repository)
         {
             InitializeComponent();
+
+            this.repository = repository;
         }
 
         private void Login_Load_1(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Project_1\Database.mdf;Integrated Security=True");
-            cn.Open();
+
         }
         private void Btnregister1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -39,18 +40,15 @@ namespace Project_1
             {
 
 
-                command = new SqlCommand("select * from LoginTable where Username='" + textusername.Text + "' and Password='" + textpassword.Text + "'", cn);
-                dr = command.ExecuteReader();
-                if (dr.Read())
+                var userExist = repository.GetUser(textusername.Text, textpassword.Text);
+                if (userExist)
                 {
-                    dr.Close();
                     this.Hide();
                     Main main = new Main();
                     main.ShowDialog();
                 }
                 else
                 {
-                    dr.Close();
                     MessageBox.Show("Неправильный логин или пароль.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
