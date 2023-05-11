@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_1.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,9 +19,12 @@ namespace Project_1
         SqlCommand command;
         SqlConnection cn;
         SqlDataReader dr;
-        public Registration()
+        private readonly DbRepository repository;
+
+        public Registration(DbRepository repository)
         {
             InitializeComponent();
+            this.repository = repository;
         }
 
 
@@ -140,7 +144,7 @@ namespace Project_1
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            Login login = new Login();
+            Login login = new Login(repository);
             login.ShowDialog();
         }
     }
