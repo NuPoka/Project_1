@@ -73,5 +73,15 @@ namespace Project_1
             Remember remember = new Remember();
             remember.ShowDialog();
         }
+
+        private void textpassword_TextChanged(object sender, EventArgs e)
+        {
+            textpassword.UseSystemPasswordChar = true;
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

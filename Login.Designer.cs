@@ -39,8 +39,8 @@
             this.textpassword = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -65,6 +65,7 @@
             this.label9.Size = new System.Drawing.Size(66, 26);
             this.label9.TabIndex = 2;
             this.label9.Text = "Логин";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -123,9 +124,12 @@
             // 
             this.textpassword.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textpassword.Location = new System.Drawing.Point(38, 113);
+            this.textpassword.MaxLength = 100;
             this.textpassword.Name = "textpassword";
+            this.textpassword.PasswordChar = '*';
             this.textpassword.Size = new System.Drawing.Size(331, 32);
             this.textpassword.TabIndex = 10;
+            this.textpassword.TextChanged += new System.EventHandler(this.textpassword_TextChanged);
             // 
             // panel1
             // 
@@ -151,6 +155,17 @@
             this.panel2.Size = new System.Drawing.Size(419, 311);
             this.panel2.TabIndex = 12;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox1.Location = new System.Drawing.Point(38, 230);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(172, 23);
+            this.checkBox1.TabIndex = 12;
+            this.checkBox1.Text = "Запомнить пароль?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
@@ -163,17 +178,6 @@
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Забыли пароль?";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.Location = new System.Drawing.Point(38, 230);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(172, 23);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "Запомнить пароль?";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // Login
             // 
